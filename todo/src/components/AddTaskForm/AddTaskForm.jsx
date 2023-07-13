@@ -19,7 +19,9 @@ export default function AddTaskForm({add_task}) {
     <div>
         <h1>It's a cool idea to visualize your plans. Let's just try it</h1>
         <form className={s.form} onSubmit={submit}>
-            {/* <label htmlFor='task'>Add your task. Feel free to add any task, you can remove it anytime */}
+            
+            {/*  тут пре  
+            <label htmlFor='task'>Add your task. Feel free to add any task, you can remove it anytime */}
                 <input type='text' name='task' className={s.textarea}/>
             {/* </label> */}
             
