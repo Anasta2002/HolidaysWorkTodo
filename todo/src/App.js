@@ -11,7 +11,10 @@ function App() {
   const remove_task = id => {
     //здесь будет функция по удаления одной задачи, возможно типа такого: setTask(tasks.filter((pr => pr.id !== id)))
   }
-  
+
+
+
+
   return (
     <div className="App">
         <AddTaskForm add_task={add_task} remove_task={remove_task} />
@@ -19,5 +22,8 @@ function App() {
     </div>
   );
 }
+
+
+
 
 export default App;

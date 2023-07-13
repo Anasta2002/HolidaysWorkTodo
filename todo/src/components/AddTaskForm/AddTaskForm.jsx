@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import s from './index.module.css'
+
+
 
 export default function AddTaskForm({add_task}) {
     const submit = e => {
@@ -9,30 +11,34 @@ export default function AddTaskForm({add_task}) {
             id: Date.now(),
             value: task.value,
             label: task.value,
+            day: selectedDay
         }
         add_task(new_task);
         console.log(new_task)
         e.target.reset(new_task);
     }
 
+    const [selectedDay, setSelectedDay] = useState('')
+
+    const dayChange = e => {
+        setSelectedDay(e.target.value)
+    }
+
   return (
     <div>
         <h1>It's a cool idea to visualize your plans. Let's just try it</h1>
         <form className={s.form} onSubmit={submit}>
-            
-            {/*  тут пре  
-            <label htmlFor='task'>Add your task. Feel free to add any task, you can remove it anytime */}
+
                 <input type='text' name='task' className={s.textarea}/>
-            {/* </label> */}
-            
-            <select className={s.selector}>
-                <option>Monday</option>
-                <option>Tuesday</option>
-                <option>Wednesday</option>
-                <option>Thursday</option>
-                <option>Friday</option>
-                <option>Satuday</option>
-                <option>Sunday</option>
+ 
+            <select className={s.selector} name='day' value={selectedDay} onChange={dayChange}>
+                <option value={'Monday'}>Monday</option>
+                <option value={'Tuesday'}>Tuesday</option>
+                <option value={'Wednesday'}>Wednesday</option>
+                <option value={'Thursday'}>Thursday</option>
+                <option value={'Friday'}>Friday</option>
+                <option value={'Saturday'}>Satuday</option>
+                <option value={'Sunday'}>Sunday</option>
             </select>
             <button className={s.button}>Add this task</button>
         </form>
