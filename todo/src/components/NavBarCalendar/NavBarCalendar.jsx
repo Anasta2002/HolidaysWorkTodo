@@ -3,7 +3,7 @@ import s from './index.module.css'
 
 
 
-export default function AddTaskForm({add_task}) {
+export default function NavBarCalendar({add_task}) {
     const submit = e => {
         e.preventDefault();
         const { task } = e.target;
@@ -26,7 +26,7 @@ export default function AddTaskForm({add_task}) {
 
   return (
     <div>
-        <h1>It's a cool idea to visualize your plans. Let's just try it</h1>
+        <h1></h1>
         <form className={s.form} onSubmit={submit}>
 
                 <input type='text' name='task' className={s.textarea}/>
