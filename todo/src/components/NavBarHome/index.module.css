@@ -3,26 +3,73 @@
   height: 1200px;
   background-color: #000000;
   color: #f2f2f2;
-  padding: 30px 10px;
+  padding: 30px 20px;
 }
 
-.textarea {
-  min-width: 300px;
-  border-radius: 10px;
-  border: 1px solid gray;
-  height: 50px;
+.navbar_title {
+  display: flex;
+  padding: 20px 0;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form input,
+.form select {
+  border-radius: 9px;
+  height: 63px;
+  background-color: #212121;
+  border: none;
+  color: #f2f2f2;
+  padding: 20px 30px;
+  font-size: 19px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.textarea,
 .selector {
-  min-width: 150px;
-  border-radius: 10px;
-  border: 1px solid gray;
-  height: 50px;
+  width: 100%;
+  display: flex;
+}
+
+.item_container {
+  position: relative;
+  display: flex;
+}
+
+.item_container svg {
+  position: absolute;
+  top: 25px;
+  left: 10px;
+}
+
+.redirect_calendar {
+  text-decoration: none;
+  border-radius: 9px;
+  height: 63px;
+  background-color: #212121;
+  border: none;
+  color: #f2f2f2;
+  padding: 20px 30px 20px 10px;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 20px 0;
+  cursor: pointer;
 }
 
 .button {
-  min-width: 150px;
-  border-radius: 10px;
+  display: flex;
+  border-radius: 9px;
+  height: 63px;
+  background-color: #212121;
   border: none;
-  height: 50px;
+  color: #f2f2f2;
+  padding: 20px 10px;
+  font-size: 19px;
+  font-weight: 600;
+  cursor: pointer;
 }

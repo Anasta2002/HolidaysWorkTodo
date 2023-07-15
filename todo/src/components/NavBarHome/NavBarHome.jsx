@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
 import s from './index.module.css'
+import AddTaskIcon from '../../assets/AddTaskIcon';
+import SelectDay from '../../assets/SelectDay';
+import { BsFillCalendarDayFill } from 'react-icons/bs'
+import { GiClick } from 'react-icons/gi'
+import { Link } from 'react-router-dom' 
 
 
 
@@ -28,19 +33,34 @@ export default function NavBarHome({add_task}) {
   return (
     <div className={s.navbar}>
         <h1 className={s.navbar_title}>Todos</h1>
-        <form  onSubmit={submit}>
-            <input type='text' name='task' className={s.textarea}/>
- 
-            <select className={s.selector} name='day' value={selectedDay} onChange={dayChange}>
-                <option value={'Monday'}>Monday</option>
-                <option value={'Tuesday'}>Tuesday</option>
-                <option value={'Wednesday'}>Wednesday</option>
-                <option value={'Thursday'}>Thursday</option>
-                <option value={'Friday'}>Friday</option>
-                <option value={'Saturday'}>Satuday</option>
-                <option value={'Sunday'}>Sunday</option>
-            </select>
-            <button className={s.button}>Add this task</button>
+        <form onSubmit={submit} className={s.form}>
+            <div className={s.item_container}>
+                <AddTaskIcon />
+                <input type='text' name='task' className={s.textarea} placeholder='Add task'/>
+            </div>
+            
+            <div className={s.item_container}>
+                <SelectDay />
+                <select className={s.selector} name='day' value={selectedDay} onChange={dayChange}>
+                    <option value={'Monday'}>Monday</option>
+                    <option value={'Tuesday'}>Tuesday</option>
+                    <option value={'Wednesday'}>Wednesday</option>
+                    <option value={'Thursday'}>Thursday</option>
+                    <option value={'Friday'}>Friday</option>
+                    <option value={'Saturday'}>Satuday</option>
+                    <option value={'Sunday'}>Sunday</option>
+                </select>                
+            </div>
+
+            <button className={s.button}>
+                <GiClick style={{fill: '#b05fff'}}/>  &nbsp; 
+                Click here to add this task
+            </button>
+
+            <Link to={'/calendar'}  className={s.redirect_calendar}>
+                <BsFillCalendarDayFill style={{fill: '#b05fff'}}/> &nbsp; 
+                Go to Calendar
+            </Link>
         </form>
     </div>
   )
