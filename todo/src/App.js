@@ -4,15 +4,12 @@ import Home from './pages/Home';
 import Calendar from './pages/Calendar';
 
 function App() {
-
-  return (
-    <div className="App">
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/calendar' element={<Calendar />}/>
-      </Routes>
-    </div>
-  );
+    return (
+        <Routes>
+            <Route path='/' element={<Home />}/>
+            <Route path='/calendar' element={<Calendar />}/>
+        </Routes>
+    );
 }
 
 

@@ -1,46 +1,40 @@
-import React, { useState } from 'react'
+import React from 'react'
 import s from './index.module.css'
+import AddTaskIcon from '../../assets/AddTaskIcon';
+import SelectDay from '../../assets/SelectDay';
+import { IoIosHome } from 'react-icons/io'
+import { GiClick } from 'react-icons/gi'
+import { Link } from 'react-router-dom' 
 
 
 
-export default function NavBarCalendar({add_task}) {
-    const submit = e => {
-        e.preventDefault();
-        const { task } = e.target;
-        const new_task = {
-            id: Date.now(),
-            value: task.value,
-            label: task.value,
-            day: selectedDay
-        }
-        add_task(new_task);
-        console.log(new_task)
-        e.target.reset(new_task);
-    }
-
-    const [selectedDay, setSelectedDay] = useState('')
-
-    const dayChange = e => {
-        setSelectedDay(e.target.value)
-    }
+export default function NavBarCalendar() {
 
   return (
-    <div>
-        <h1></h1>
-        <form className={s.form} onSubmit={submit}>
+    <div className={s.navbar}>
+        <h1 className={s.navbar_title}>Todos</h1>
+        <form className={s.form}>
+            <div className={s.item_container}>
+                <AddTaskIcon />
+                <input type='data' name='task' className={s.textarea} placeholder='Select exact date'/>
+            </div>
+            
+            <div className={s.item_container}>
+                <SelectDay />
+                <select className={s.selector}>
+                    <option>Здесь будут те таски, которые мы добавили на первой странице</option>
+                </select>                
+            </div>
 
-                <input type='text' name='task' className={s.textarea}/>
- 
-            <select className={s.selector} name='day' value={selectedDay} onChange={dayChange}>
-                <option value={'Monday'}>Monday</option>
-                <option value={'Tuesday'}>Tuesday</option>
-                <option value={'Wednesday'}>Wednesday</option>
-                <option value={'Thursday'}>Thursday</option>
-                <option value={'Friday'}>Friday</option>
-                <option value={'Saturday'}>Satuday</option>
-                <option value={'Sunday'}>Sunday</option>
-            </select>
-            <button className={s.button}>Add this task</button>
+            <button className={s.button}>
+                <GiClick style={{fill: '#b05fff'}}/>  &nbsp; 
+                Click here to add this task
+            </button>
+
+            <Link to={'/'}  className={s.redirect_calendar}>
+                <IoIosHome style={{fill: '#b05fff'}}/> &nbsp; 
+                Go home to add new Task
+            </Link>
         </form>
     </div>
   )
