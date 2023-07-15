@@ -23,20 +23,15 @@ function App() {
   return (
     <div className="App">
       <AddTaskForm add_task={add_task} remove_task={remove_task} />
-      <div>Всем привет от Насти четверг!</div>
-
       <form onSubmit={submit}>
         <label>
           <input type="text" name='name_task' />
           <button>Add task</button>
         </label>
       </form>
-
     </div>
   );
 }
-
-
 
 
 export default App;
