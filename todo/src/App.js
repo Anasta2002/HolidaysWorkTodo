@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="App">
         <AddTaskForm add_task={add_task} remove_task={remove_task} />
-        <div>Всем привет от Насти четверг!</div>
     </div>
   );
 }

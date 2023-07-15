@@ -1,0 +1,21 @@
+.day {
+  background-color: #cfdedb;
+  border-radius: 15px;
+  width: 200px;
+  color: white;
+  padding: 20px;
+  position: relative;
+}
+
+.day svg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.day svg:hover {
+  background-color: #c0cdca;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
