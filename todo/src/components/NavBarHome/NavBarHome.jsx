@@ -5,6 +5,8 @@ import SelectDay from '../../assets/SelectDay';
 import { BsFillCalendarDayFill } from 'react-icons/bs'
 import { GiClick } from 'react-icons/gi'
 import { Link } from 'react-router-dom' 
+import Select from 'react-select'
+import { dayOptions } from '../../data/data_select';
 
 
 
@@ -30,6 +32,22 @@ export default function NavBarHome({add_task}) {
 
     }
 
+    //const [isDisabled, setIsDisabled] = useState(false);
+
+    const colorStylesSelect = {
+        control: (styles) => ({...styles, backgroundColor: "#212121"}),
+        option: (styles, {data, isDisabled}) => {
+            console.log( data, isDisabled);
+            return { ...styles }
+        }
+    };
+
+    const handleChangeSelect = (selectedOption) => {
+        setSelectedDay(selectedOption)
+        console.log("handleChange", selectedOption);
+    };
+    
+
   return (
     <div className={s.navbar}>
         <h1 className={s.navbar_title}>Todos</h1>
@@ -41,7 +59,7 @@ export default function NavBarHome({add_task}) {
             
             <div className={s.item_container}>
                 <SelectDay />
-                <select className={s.selector} name='day' value={selectedDay} onChange={dayChange}>
+                {/* <select className={s.selector} name='day' value={selectedDay} onChange={dayChange}>
                     <option value={'Monday'}>Monday</option>
                     <option value={'Tuesday'}>Tuesday</option>
                     <option value={'Wednesday'}>Wednesday</option>
@@ -49,7 +67,17 @@ export default function NavBarHome({add_task}) {
                     <option value={'Friday'}>Friday</option>
                     <option value={'Saturday'}>Satuday</option>
                     <option value={'Sunday'}>Sunday</option>
-                </select>                
+                </select>  */}
+
+                <Select 
+                    options={dayOptions}
+                    onChange={handleChangeSelect}
+                    styles={colorStylesSelect}
+                    isMulti
+                    name='day'             
+                    className={s.selector}
+                />
+
             </div>
 
             <button className={s.button}>
