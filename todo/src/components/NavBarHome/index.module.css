@@ -33,8 +33,7 @@
 .textarea,
 .selector {
   width: 100%;
-  /* display: flex; */
-  color: #212121;
+  background-color: #212121;
   cursor: pointer;
   appearance: none;
 }

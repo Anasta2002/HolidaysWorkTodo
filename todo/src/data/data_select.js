@@ -1,11 +1,12 @@
 export const dayOptions = [
-    { value: 'Monday', label: 'Monday', isDisabled: true },
-    { value: 'Tuesday', label: 'Tuesday', isDisabled: false },
-    { value: 'Wednesday', label: 'Wednesday', isDisabled: false },
-    { value: 'Thursday', label: 'Thursday', isDisabled: false },
-    { value: 'Friday', label: 'Friday', isDisabled: false },
-    { value: 'Satuday', label: 'Satuday', isDisabled: false },
-    { value: 'Sunday', label: 'Sunday', isDisabled: false }
+    { value: 'Select a day', label: 'Select a day', isDisabled: true },
+    { value: 'Monday', label: 'Monday'},
+    { value: 'Tuesday', label: 'Tuesday'},
+    { value: 'Wednesday', label: 'Wednesday'},
+    { value: 'Thursday', label: 'Thursday'},
+    { value: 'Friday', label: 'Friday'},
+    { value: 'Satuday', label: 'Satuday'},
+    { value: 'Sunday', label: 'Sunday'}
   ];
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './index.module.css'
 import AddTaskIcon from '../../assets/AddTaskIcon';
-import SelectDay from '../../assets/SelectDay';
+import { LuListChecks } from 'react-icons/lu';
 import { IoIosHome } from 'react-icons/io'
 import { GiClick } from 'react-icons/gi'
 import { Link } from 'react-router-dom' 
@@ -20,7 +20,7 @@ export default function NavBarCalendar() {
             </div>
             
             <div className={s.item_container}>
-                <SelectDay />
+                <LuListChecks />
                 <select className={s.selector}>
                     <option>Здесь будут те таски, которые мы добавили на первой странице</option>
                 </select>                
