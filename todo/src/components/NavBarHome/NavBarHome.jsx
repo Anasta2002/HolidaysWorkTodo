@@ -59,21 +59,10 @@ export default function NavBarHome({add_task}) {
             
             <div className={s.item_container}>
                 <SelectDay />
-                {/* <select className={s.selector} name='day' value={selectedDay} onChange={dayChange}>
-                    <option value={'Monday'}>Monday</option>
-                    <option value={'Tuesday'}>Tuesday</option>
-                    <option value={'Wednesday'}>Wednesday</option>
-                    <option value={'Thursday'}>Thursday</option>
-                    <option value={'Friday'}>Friday</option>
-                    <option value={'Saturday'}>Satuday</option>
-                    <option value={'Sunday'}>Sunday</option>
-                </select>  */}
-
                 <Select 
                     options={dayOptions}
                     onChange={handleChangeSelect}
                     styles={colorStylesSelect}
-                    isMulti
                     name='day'             
                     className={s.selector}
                 />
