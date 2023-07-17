@@ -1,0 +1,7 @@
+.task{
+    display: flex;
+}
+
+.task_input {
+    margin: 10px 10px 0 0;
+  }
