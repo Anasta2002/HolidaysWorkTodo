@@ -38,12 +38,12 @@
   appearance: none;
 }
 
-.item_container {
+.input_container {
   position: relative;
   display: flex;
 }
 
-.item_container svg {
+.input_container svg {
   position: absolute;
   top: 25px;
   left: 10px;
@@ -74,4 +74,12 @@
   font-size: 19px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.selector span {
+  display: none;
 }

@@ -18,33 +18,22 @@ export default function NavBarHome({add_task}) {
             id: Date.now(),
             value: task.value,
             label: task.value,
-            day: selectedDay
+            day: selectedDay.value,
         }
         add_task(new_task);
         console.log(new_task)
-        e.target.reset(new_task);
+        e.target.reset(new_task);            
     }
 
     const [selectedDay, setSelectedDay] = useState('')
 
-    const dayChange = e => {
-        setSelectedDay(e.target.value)
-
-    }
-
-    //const [isDisabled, setIsDisabled] = useState(false);
-
     const colorStylesSelect = {
-        control: (styles) => ({...styles, backgroundColor: "#212121"}),
-        option: (styles, {data, isDisabled}) => {
-            console.log( data, isDisabled);
-            return { ...styles }
-        }
+        control: (styles) => ({...styles, backgroundColor: "#212121", height: '63px', border: 'none', color: 'f2f2f2'}),
+        option: (styles) => ({ ...styles })
     };
 
     const handleChangeSelect = (selectedOption) => {
         setSelectedDay(selectedOption)
-        console.log("handleChange", selectedOption);
     };
     
 
@@ -52,13 +41,13 @@ export default function NavBarHome({add_task}) {
     <div className={s.navbar}>
         <h1 className={s.navbar_title}>Todos</h1>
         <form onSubmit={submit} className={s.form}>
-            <div className={s.item_container}>
+            <div className={s.input_container}>
                 <AddTaskIcon />
                 <input type='text' name='task' className={s.textarea} placeholder='Add task'/>
             </div>
             
             <div className={s.item_container}>
-                <SelectDay />
+                {/* <SelectDay /> */}
                 <Select 
                     options={dayOptions}
                     onChange={handleChangeSelect}
