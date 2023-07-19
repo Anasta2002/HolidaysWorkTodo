@@ -76,6 +76,7 @@ return (
     <div className={s.main}>
         <div className={s.navbar}>
             <h1 className={s.navbar_title}>Todos</h1>
+            
             <form onSubmit={submit} className={s.form}>
                 <div className={s.item_container}>
                     <AddTaskIcon />
@@ -91,12 +92,8 @@ return (
                         name='day'
                         className={s.selector}
                     />
-
                 </div>
-
-
-
-
+                
                 <button className={s.button}>
                     <GiClick style={{ fill: '#b05fff' }} />  &nbsp;
                     Click here to add task
