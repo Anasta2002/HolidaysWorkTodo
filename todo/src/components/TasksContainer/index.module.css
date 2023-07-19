@@ -1,5 +1,6 @@
 .container{
     display: flex;
+    color: white;
 }
 .day_container{
     width: 200px;
