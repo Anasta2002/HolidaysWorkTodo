@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import s from './index.module.css'
 import AddTaskIcon from '../../assets/AddTaskIcon';
-import SelectDay from '../../assets/SelectDay';
 import { BsFillCalendarDayFill } from 'react-icons/bs'
 import { GiClick } from 'react-icons/gi'
 import TasksContainer from '../TasksContainer';
@@ -20,7 +19,7 @@ export default function NavBarHome() {
             id: Date.now(),
             value: task.value,
             label: task.value,
-            day: selectedDay.value,
+            day: selectedDay,
         }
         add_task(new_task);
         console.log(new_task);
@@ -30,9 +29,9 @@ export default function NavBarHome() {
 
 
 
-//создается объект, у которого ключами являются дни недели, внутри которых пустой массив, в который мы будем пушить наши таски, чтобы они отображались отдельно в каждом дне
+//создается объект, у которого ключами являются дни недели, внутри которых пустой массив, в которые мы будем пушить наши таски, чтобы они отображались отдельно в каждом дне
 const initialTasks = {
-    Monday: [],
+    Monday: [{id: 1, value: 'Sleep all day'}, {id: 2, value: 'Play games'}],
     Tuesday: [],
     Wednesday: [],
     Thursday: [],
@@ -42,17 +41,19 @@ const initialTasks = {
 }
 
 
-const [tasks, setTasks] = useState(initialTasks)
-const [selectedDay, setSelectedDay] = useState('')
 
+const [tasks, setTasks] = useState(initialTasks)
+const [selectedDay, setSelectedDay] = useState('Monday')
+
+console.log(tasks);
 
 
 
 // setTask обновляет tasks
 const add_task = (task) => {
     setTasks(tasks => ({
-        ...tasks,
-        [selectedDay]: [...tasks[selectedDay], task]
+        ...tasks, 
+        [selectedDay]: [...tasks[selectedDay], task] //обновляем массив у выбранного дня и добавляем таск
     }));
 }
 
@@ -67,7 +68,7 @@ const colorStylesSelect = {
 
 
 const handleChangeSelect = (selectedOption) => {
-    setSelectedDay(selectedOption)
+    setSelectedDay(selectedOption.value)
 };
 
 
