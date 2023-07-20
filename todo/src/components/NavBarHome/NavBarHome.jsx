@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import Select from 'react-select'
 import { dayOptions } from '../../data/data_select';
 import Tip from '../Tip/Tip';
+import {TiWeatherStormy} from 'react-icons/ti'
 
 
 export default function NavBarHome() {
@@ -41,37 +42,39 @@ export default function NavBarHome() {
 
     }
 
-
-
     const newTasks = Object.keys(tasks) //создание массива из объекта
 
-
-
-
-// setTask обновляет tasks
-const add_task = (task) => {
-    setTasks(tasks => ({
-        ...tasks, 
-        [selectedDay]: [...tasks[selectedDay], task] //обновляем массив у выбранного дня и добавляем таск
-    }));
-}
+    // setTask обновляет tasks
+    const add_task = (task) => {
+        setTasks(tasks => ({
+            ...tasks,
+            [selectedDay]: [...tasks[selectedDay], task] //обновляем массив у выбранного дня и добавляем таск
+        }));
+    }
 
     const showActivity = () => {
         return <Tip />
     }
 
 
-const colorStylesSelect = {
-    control: (styles) => ({ ...styles, backgroundColor: "#212121", height: '63px', border: 'none', color: 'f2f2f2' }),
-    option: (styles) => ({ ...styles })
-};
+    const colorStylesSelect = {
+        control: (styles) => ({ ...styles, backgroundColor: "#212121", height: '63px', border: 'none', color: 'f2f2f2' }),
+        option: (styles) => ({ ...styles })
+    };
 
 
-const handleChangeSelect = (selectedOption) => {
-    setSelectedDay(selectedOption.value)
-};
+    const handleChangeSelect = (selectedOption) => {
+        setSelectedDay(selectedOption.value)
+    };
 
-return (
+    const delete_task = (id) => {
+        setTasks(tasks => ({
+            ...tasks,
+            [selectedDay]: [...tasks[selectedDay].filter(el => el.id !== id)]
+        }))
+    }
+
+    return (
         <div className={s.main}>
             <div className={s.navbar}>
                 <h1 className={s.navbar_title}>Todos</h1>
@@ -102,10 +105,15 @@ return (
                         <GiClick style={{ fill: '#b05fff' }} />  &nbsp;
                         Bored? Click here
                     </button>
+                <TasksContainer newTasks={newTasks} tasks={tasks} />
+                    <Link to={'/weather'}  className={s.redirect_calendar}>
+                    <TiWeatherStormy style={{ fill: '#b05fff' }} /> &nbsp;
+                        Go to Weather Forecast
+                    </Link>
                 </form>
             </div>
             <div>
-                <TasksContainer newTasks={newTasks} tasks={tasks} />
+                <TasksContainer newTasks={newTasks} tasks={tasks} delete_task={delete_task} />
             </div>
         </div>
     )
