@@ -1,5 +1,9 @@
+/* .main {
+  display: -webkit-box;
+} */
+
 .navbar {
-  max-width: 30%;
+  width: 30%;
   height: 1200px;
   background-color: #000000;
   color: #f2f2f2;
@@ -24,7 +28,7 @@
   background-color: #212121;
   border: none;
   color: #f2f2f2;
-  padding: 20px 30px 20px 45px;
+  padding: 20px 30px;
   font-size: 19px;
   font-weight: 600;
   cursor: pointer;
@@ -33,26 +37,20 @@
 .textarea,
 .selector {
   width: 100%;
-  display: flex;
+  background-color: #212121;
+  cursor: pointer;
+  appearance: none;
 }
 
-.item_container {
+.input_container {
   position: relative;
   display: flex;
 }
 
-.item_container svg {
+.input_container svg {
   position: absolute;
-  top: 16px;
+  top: 25px;
   left: 10px;
-  fill: #b05fff;
-  width: 30px;
-  height: 30px;
-}
-
-.item_container svg line,
-.item_container svg polyline {
-  stroke: #b05fff;
 }
 
 .redirect_calendar {
@@ -80,4 +78,12 @@
   font-size: 19px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.selector span {
+  display: none;
 }
