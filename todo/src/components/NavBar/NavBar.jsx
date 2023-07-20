@@ -1,9 +1,9 @@
-import React, { memo } from 'react'
+import React from 'react'
 import s from './index.module.css'
 import AddTaskIcon from '../../assets/AddTaskIcon';
 import { BsFillCalendarDayFill } from 'react-icons/bs'
 import { GiClick } from 'react-icons/gi'
-
+import { Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
 import { dayOptions } from '../../data/data_select';
@@ -52,11 +52,10 @@ export default function NavBar({initialTasks, tasks, setTasks, newTasks, selecte
             <form onSubmit={submit} className={s.form}>
                 <div className={s.item_container}>
                     <AddTaskIcon />
-                    {
-                        window.location.pathname === '/' ?
-                        <input type='text' name='task' className={s.textarea} placeholder='Add task' /> :
-                        <input type='date' name='date' className={s.textarea} placeholder='Select exact date'/>
-                    }
+                    <Routes>
+                        <Route path='/calendar' element={<input type='date' name='date' className={s.textarea} placeholder='Select exact date'/>} />
+                        <Route path='/' element={<input type='text' name='task' className={s.textarea} placeholder='Add task' />} />                        
+                    </Routes>
                 </div>
                 <div className={s.item_container}>
                     {
