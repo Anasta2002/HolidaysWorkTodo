@@ -15,9 +15,7 @@ export default function TaskItem({ task, delete_task, id }) {
         <span className={ ischecked ? s.task_completed : '' } onClick={() => { delete_task(id) }} >
           {task}
         </span>
-
       </label>
     </div>
-
   )
 }

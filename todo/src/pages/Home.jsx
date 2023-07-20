@@ -10,11 +10,5 @@ export default function Home({tasks, newTasks, setTasks, selectedDay}) {
         }))
     }
 
-    return (
-        <div>
-            <div>
-                <TasksContainer newTasks={newTasks} tasks={tasks} delete_task={delete_task} />
-            </div>
-        </div>
-    )
+    return <TasksContainer newTasks={newTasks} tasks={tasks} delete_task={delete_task} />
 }
