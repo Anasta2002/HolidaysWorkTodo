@@ -6,9 +6,6 @@ import AddTaskIcon from '../../assets/AddTaskIcon';
 
 export default function TasksContainer({ newTasks, tasks, delete_task }) {
 
-
-
-
     return (
         <div className={s.container} >
             {newTasks.map(day => (

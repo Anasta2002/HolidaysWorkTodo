@@ -29,8 +29,14 @@ function App() {
     };
 
     return (
-        <div>
-            <NavBar initialTasks={initialTasks} tasks={tasks} setTasks={setTasks} newTasks={newTasks} selectedDay={selectedDay} handleChangeSelect={handleChangeSelect} />
+        <div style={{display: 'flex', width: '100%'}}>
+            <NavBar 
+                initialTasks={initialTasks} 
+                tasks={tasks} setTasks={setTasks} 
+                newTasks={newTasks} 
+                selectedDay={selectedDay} 
+                handleChangeSelect={handleChangeSelect} 
+            />
             <Routes>
                 <Route path='/' element={<Home tasks={tasks} setTasks={setTasks}  newTasks={newTasks} selectedDay={selectedDay} />}/>
                 <Route path='/calendar' element={<CalendarPage />}/>
