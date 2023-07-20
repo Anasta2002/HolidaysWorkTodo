@@ -7,6 +7,7 @@ import TasksContainer from '../TasksContainer';
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
 import { dayOptions } from '../../data/data_select';
+import {TiWeatherStormy} from 'react-icons/ti'
 import Tip from '../Tip/Tip';
 import {TiWeatherStormy} from 'react-icons/ti'
 
@@ -56,7 +57,6 @@ export default function NavBarHome() {
         return <Tip />
     }
 
-
     const colorStylesSelect = {
         control: (styles) => ({ ...styles, backgroundColor: "#212121", height: '63px', border: 'none', color: 'f2f2f2' }),
         option: (styles) => ({ ...styles })
@@ -66,6 +66,7 @@ export default function NavBarHome() {
     const handleChangeSelect = (selectedOption) => {
         setSelectedDay(selectedOption.value)
     };
+
 
     const delete_task = (id) => {
         setTasks(tasks => ({
@@ -114,7 +115,7 @@ export default function NavBarHome() {
             </div>
             <div>
                 <TasksContainer newTasks={newTasks} tasks={tasks} delete_task={delete_task} />
-            </div>
+</div>
         </div>
     )
 }
