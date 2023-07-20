@@ -5,7 +5,7 @@ import { LuListChecks } from 'react-icons/lu';
 import { IoIosHome } from 'react-icons/io'
 import { GiClick } from 'react-icons/gi'
 import { Link } from 'react-router-dom' 
-
+import Select from 'react-select'
 
 
 export default function NavBarCalendar() {
@@ -16,14 +16,18 @@ export default function NavBarCalendar() {
         <form className={s.form}>
             <div className={s.item_container}>
                 <AddTaskIcon />
-                <input type='data' name='task' className={s.textarea} placeholder='Select exact date'/>
+                <input type='date' name='date' className={s.textarea} placeholder='Select exact date'/>
             </div>
             
             <div className={s.item_container}>
                 <LuListChecks />
-                <select className={s.selector}>
-                    <option>Здесь будут те таски, которые мы добавили на первой странице</option>
-                </select>                
+                <Select 
+                    // options={dayOptions}
+                    // onChange={handleChangeSelect}
+                    // styles={colorStylesSelect}
+                    name='day'             
+                    className={s.selector}
+                />               
             </div>
 
             <button className={s.button}>

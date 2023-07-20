@@ -8,9 +8,25 @@ import { Link } from 'react-router-dom'
 import Select from 'react-select'
 import { dayOptions } from '../../data/data_select';
 import {TiWeatherStormy} from 'react-icons/ti'
- 
+import Tip from '../Tip/Tip';
+
 
 export default function NavBarHome() {
+
+    //создается объект, у которого ключами являются дни недели, внутри которых пустой массив, в которые мы будем пушить наши таски, чтобы они отображались отдельно в каждом дне
+    const initialTasks = {
+        Monday: [{id: 1, value: 'Sleep all day'}, {id: 2, value: 'Play games'}],
+        Tuesday: [],
+        Wednesday: [],
+        Thursday: [],
+        Friday: [],
+        Saturday: [],
+        Sunday: []
+    }
+
+    const [tasks, setTasks] = useState(initialTasks)
+    const [selectedDay, setSelectedDay] = useState('Monday')
+    
     const submit = e => {
         e.preventDefault();
         const { task } = e.target;
@@ -26,27 +42,7 @@ export default function NavBarHome() {
 
     }
 
-
-
-    //создается объект, у которого ключами являются дни недели, внутри которых пустой массив, в которые мы будем пушить наши таски, чтобы они отображались отдельно в каждом дне
-    const initialTasks = {
-        Monday: [{ id: 1, value: 'Sleep all day' }, { id: 2, value: 'Play games' }],
-        Tuesday: [],
-        Wednesday: [],
-        Thursday: [],
-        Friday: [],
-        Saturday: [],
-        Sunday: []
-    }
-
-
-
-    const [tasks, setTasks] = useState(initialTasks)
-    const [selectedDay, setSelectedDay] = useState('Monday')
-
-    console.log(tasks);
-
-
+    const newTasks = Object.keys(tasks) //создание массива из объекта
 
     // setTask обновляет tasks
     const add_task = (task) => {
@@ -56,6 +52,10 @@ export default function NavBarHome() {
         }));
     }
 
+    const showActivity = () => {
+        return <Tip />
+    }
+        
     const delete_task = (id) => {
         setTasks(tasks => ({
             ...tasks,
@@ -65,10 +65,7 @@ export default function NavBarHome() {
 
 
 
-
     const newTasks = Object.keys(tasks) //создание массива из объекта
-
-
 
     const colorStylesSelect = {
         control: (styles) => ({ ...styles, backgroundColor: "#212121", height: '63px', border: 'none', color: 'f2f2f2' }),
@@ -91,7 +88,6 @@ export default function NavBarHome() {
                         <AddTaskIcon />
                         <input type='text' name='task' className={s.textarea} placeholder='Add task' />
                     </div>
-
                     <div className={s.item_container}>
                         {/* <SelectDay /> */}
                         <Select
@@ -101,30 +97,27 @@ export default function NavBarHome() {
                             name='day'
                             className={s.selector}
                         />
-
-                    </div>
-
-
-
-
                     <button className={s.button}>
                         <GiClick style={{ fill: '#b05fff' }} />  &nbsp;
                         Click here to add task
                     </button>
-
                     <Link to={'/calendar'} className={s.redirect_calendar}>
                         <BsFillCalendarDayFill style={{ fill: '#b05fff' }} /> &nbsp;
                         Go to Calendar
                     </Link>
-
+                    <button className={s.button} onClick={showActivity}>
+                        <GiClick style={{ fill: '#b05fff' }} />  &nbsp;
+                        Bored? Click here
+                    </button>
+                </form>
+            </div>
+            <div>
+                <TasksContainer newTasks={newTasks} tasks={tasks} />
                     <Link to={'/weather'}  className={s.redirect_calendar}>
                     <TiWeatherStormy style={{ fill: '#b05fff' }} /> &nbsp;
                         Go to Weather Forecast
                     </Link>
                 </form>
-            </div>
-            <div>
-                <TasksContainer newTasks={newTasks} tasks={tasks} delete_task={delete_task} />
             </div>
         </div>
     )
