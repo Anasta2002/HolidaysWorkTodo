@@ -7,8 +7,10 @@ import TasksContainer from '../TasksContainer';
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
 import { dayOptions } from '../../data/data_select';
-import {TiWeatherStormy} from 'react-icons/ti'
- 
+import { CiCircleList } from 'react-icons/ci'
+
+
+
 
 export default function NavBarHome() {
     const submit = e => {
@@ -29,7 +31,7 @@ export default function NavBarHome() {
 
     //создается объект, у которого ключами являются дни недели, внутри которых пустой массив, в которые мы будем пушить наши таски, чтобы они отображались отдельно в каждом дне
     const initialTasks = {
-        Monday: [{ id: 1, value: 'Sleep all day' }, { id: 2, value: 'Play games' }],
+
         Tuesday: [],
         Wednesday: [],
         Thursday: [],
@@ -42,6 +44,7 @@ export default function NavBarHome() {
 
     const [tasks, setTasks] = useState(initialTasks)
     const [selectedDay, setSelectedDay] = useState('Monday')
+    const [isHidden, setIsHidden] = useState(false)
 
     console.log(tasks);
 
@@ -54,16 +57,6 @@ export default function NavBarHome() {
             [selectedDay]: [...tasks[selectedDay], task] //обновляем массив у выбранного дня и добавляем таск
         }));
     }
-
-    const delete_task = (id) => {
-        setTasks(tasks => ({
-            ...tasks,
-            [selectedDay]: [...tasks[selectedDay].filter(el => el.id !== id)]
-        }))
-    }
-
-
-
 
     const newTasks = Object.keys(tasks) //создание массива из объекта
 
@@ -79,12 +72,27 @@ export default function NavBarHome() {
         setSelectedDay(selectedOption.value)
     };
 
+    const toggleHidden = () => {
+        setIsHidden(prevState => !prevState)
+    };
 
+    const hendleActivMenu = () => {
+        setIsHidden(false)
+    };
+
+    const hiddenNav = [s.navbar, isHidden ? s.navbarHiden : ''].join(' ');
 
     return (
         <div className={s.main}>
-            <div className={s.navbar}>
+            <div className={`${s.navbar} ${hiddenNav}`} >
+
+                <CiCircleList 
+                    onClick={toggleHidden}
+                    className={s.onHiddenBtn}
+                />
+
                 <h1 className={s.navbar_title}>Todos</h1>
+
                 <form onSubmit={submit} className={s.form}>
                     <div className={s.item_container}>
                         <AddTaskIcon />
@@ -100,11 +108,7 @@ export default function NavBarHome() {
                             name='day'
                             className={s.selector}
                         />
-
                     </div>
-
-
-
 
                     <button className={s.button}>
                         <GiClick style={{ fill: '#b05fff' }} />  &nbsp;
@@ -115,16 +119,13 @@ export default function NavBarHome() {
                         <BsFillCalendarDayFill style={{ fill: '#b05fff' }} /> &nbsp;
                         Go to Calendar
                     </Link>
-
-                    <Link to={'/weather'}  className={s.redirect_calendar}>
-                    <TiWeatherStormy style={{ fill: '#b05fff' }} /> &nbsp;
-                        Go to Weather Forecast
-                    </Link>
                 </form>
             </div>
             <div>
-                <TasksContainer newTasks={newTasks} tasks={tasks} delete_task={delete_task} />
+                <CiCircleList onClick={hendleActivMenu} />
+                <TasksContainer newTasks={newTasks} tasks={tasks} />
             </div>
+
         </div>
     )
 }
