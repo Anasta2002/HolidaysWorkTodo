@@ -1,20 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import '../../index.css'
+import TopButtons from './TopButtons'
+import WeatherInputs from './WeatherInputs'
+import TimeAndLocation from './TimeAndLocation'
+import TemperatureAndDetails from './TemperatureAndDetails'
+import Forecast from './Forecast'
+import getWeatherData from '../../services/weatherService'
 
 export default function WeatherForecast() {
 
-const [forecast, setForecast] = useState()
+const fetchWeather = async () => {
+  const data = await getWeatherData('weather', {q: 'london'})
+  console.log(data);
+}
 
-useEffect(() => {
-    fetch('https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m')
-    .then(res => res.json())
-    .then(data => {console.log(data)})
-},[])
-
+fetchWeather()
 
 
   return (
-    <div>
-
+    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400'>
+        <TopButtons />
+        <WeatherInputs />
+        <TimeAndLocation />
+        <TemperatureAndDetails/>
+        <Forecast title="hourly forecast"/>
+        <Forecast title="daily forecast"/>
     </div>
   )
 }

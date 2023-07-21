@@ -23,7 +23,6 @@ export default function NavBarHome() {
         add_task(new_task);
         console.log(new_task);
         e.target.reset();
-
     }
 
 
