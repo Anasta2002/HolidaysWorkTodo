@@ -10,6 +10,7 @@
 
 .task_completed {
   text-decoration: line-through;
+  
 }
 
 .input_span {
@@ -29,6 +30,7 @@
 
 .task_input:not(:disabled):not(:checked)+span:hover::before {
   border-color: #b3d7ff;
+
 }
 
 .input_span:not(:disabled):active+span::before {

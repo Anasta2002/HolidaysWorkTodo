@@ -30,7 +30,8 @@ function App() {
     };
 
     return (
-        <div style={{display: 'flex', width: '100%'}}>
+        // <div style={{display: 'flex', width: '100%'}}>
+        <div className='wrapper'>
             <NavBar 
                 initialTasks={initialTasks} 
                 tasks={tasks} setTasks={setTasks} 

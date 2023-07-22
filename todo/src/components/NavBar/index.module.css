@@ -1,5 +1,5 @@
 .main {
-  display: block;
+  /* display: block; */
   font-size: 14px;
   font-weight: 600;
 }
@@ -8,11 +8,11 @@
   background-color: #000000;
   color: #f2f2f2;
   padding: 0;
-  width: 30%;
-  position: fixed;
+  /* width: 30%; */
+  /* position: fixed;
   top: 0;
-  left: 0;
-  height: 100%;
+  left: 0; */
+  /* height: 100%; */
 }
 
 @media (max-width: 990px) {
@@ -23,11 +23,11 @@
 
 .navbarHiden {
   transform: translate(-87%, 0);
-  transition: width 1s, height 1s, transform 1s;
+  transition: width 1s, height 1s, transform 0.2s;
 }
 
 .navAppear {
-  transition: width 1s, height 1s, transform 1s;
+  transition: width 1s, height 1s, transform 0.2s;
 }
 
 .form {
