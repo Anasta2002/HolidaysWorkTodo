@@ -23,11 +23,11 @@
 
 .navbarHiden {
   transform: translate(-87%, 0);
-  transition: width 2s, height 2s, transform 0.2s;
+  transition: width 1s, height 1s, transform 0.2s;
 }
 
 .navAppear {
-  transition: width 2s, height 2s, transform 0.3s;
+  transition: width 1s, height 1s, transform 0.2s;
 }
 
 .form {

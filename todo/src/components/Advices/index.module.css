@@ -17,7 +17,13 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  margin: 20px auto;
+  margin: 20px 30px;
+}
+
+@media (max-width: 1064px) {
+  .bottom_container {
+    margin: 20px auto;
+  }
 }
 
 .bottom_container button {
