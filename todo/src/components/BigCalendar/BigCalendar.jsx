@@ -8,13 +8,14 @@ const localizer = momentLocalizer(moment)
 export default function PlanCalendar() {
 
     return (
-        <div style={{height: '100%'}}>
+        <div className={s.calendar_wrapper}>
             <BigCalendar
                 localizer={localizer}
                 // events={myEventsList}
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 500 }}
+                calendarType='US'
                 className={s.calendar_container}
                 // onChange={setCalendarValue}
                 // value={calendarValue}
