@@ -11,7 +11,6 @@ export default function Joke() {
     const newJoke = () => {
         getJokes(setJokes)
     }
-    console.log('1', jokes)
 
     return (
         <div className={s.tip_window}>
