@@ -1,0 +1,11 @@
+.advices_page {
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+@media (max-width: 1064px) {
+  .advices_page {
+    flex-direction: column;
+  }
+}
