@@ -6,6 +6,9 @@ import WeatherPage from './pages/WeatherPage';
 import NavBar from './components/NavBar/NavBar';
 import React, { useState } from 'react'
 import AdvicesPage from './pages/AdvicesPage';
+import 'react-production-calendar/lib/styles/calendar-reset-styles.css'
+import 'react-production-calendar/lib/styles/calendar-dark.css'
+import 'react-production-calendar/lib/styles/calendar.css'
 
 function App() {
     //создается объект, у которого ключами являются дни недели, внутри которых пустой массив, в которые мы будем пушить наши таски, чтобы они отображались отдельно в каждом дне

@@ -6,7 +6,15 @@
   box-sizing: border-box;
   font-family: "Poppins", serif;
 }
-.wrapper{
+
+.wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+  }
 }
