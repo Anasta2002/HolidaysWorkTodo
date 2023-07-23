@@ -1,11 +1,12 @@
 import React from 'react'
 import BigCalendar from '../components/BigCalendar/BigCalendar'
+import s from './pages.module.css'
 
 export default function CalendarPage() {
   return (
-    <div style={{display: 'flex'}}>
+    <div >
         <div>
-          <h1 style={{margin: '50px auto'}}>Here should be interesting title and small description</h1>
+          <h1 className={s.calendar_page_title} style={{margin: '30px auto', padding: '10px 20px 0 10%'}}>Here should be interesting title and small description</h1>
           <BigCalendar />
         </div>
     </div>

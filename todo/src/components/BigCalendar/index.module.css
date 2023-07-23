@@ -1,0 +1,29 @@
+.calendar_wrapper {
+  height: 1000px;
+  padding: 10px 20px;
+}
+
+@media (max-width: 990px) {
+  .calendar_wrapper {
+    padding: 10px 20px 10px 12%;
+  }
+}
+
+.calendar_container {
+  margin: 20px auto;
+  background-color: black;
+  color: #f2f2f2;
+  border-radius: 10px;
+}
+
+.calendar_container > div > span > button {
+  color: #f2f2f2;
+  background: transparent;
+}
+
+.calendar_container button {
+  color: #f2f2f2;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
