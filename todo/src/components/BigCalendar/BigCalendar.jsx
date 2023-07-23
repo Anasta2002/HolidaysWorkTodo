@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { Calendar as BigCalendar, momentLocalizer, CalendarProps } from 'react-big-calendar'
+import { Calendar as BigCalendar, momentLocalizer, CalendarProps } from 'react-big-calendar'
 import moment from 'moment'
 import s from './index.module.css'
 

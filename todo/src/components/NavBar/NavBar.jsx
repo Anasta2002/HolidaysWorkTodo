@@ -50,8 +50,8 @@ export default function NavBar({tasks, setTasks, selectedDay, handleChangeSelect
     }
     
     const colorStylesSelect = {
-        control: (styles) => ({ ...styles, backgroundColor: "#212121", height: '63px', border: 'none', color: 'f2f2f2' }),
-        option: (styles) => ({ ...styles })
+        control: (styles) => ({ ...styles, backgroundColor: "#212121", height: '63px', border: 'none' }),
+        option: (styles) => ({ ...styles, color: "#212121"  }),
     };   
 
     const [isHidden, setIsHidden] = useState(false)
@@ -70,7 +70,7 @@ export default function NavBar({tasks, setTasks, selectedDay, handleChangeSelect
                     <div className={s.menu_icon}>
                         <CiCircleList 
                             onClick={toggleHidden} 
-                            style={{ fill: '#b05fff', width: '30px', height: '30px' }}  
+                            style={{ fill: '#b05fff', width: '30px', height: '30px'}}  
                         />
                     </div>
                 }
