@@ -4,6 +4,7 @@ import s from './index.module.css'
 import AddTaskIcon from '../../assets/AddTaskIcon';
 
 
+
 export default function TasksContainer({ newTasks, tasks, delete_task }) {
 
     return (
@@ -16,7 +17,7 @@ export default function TasksContainer({ newTasks, tasks, delete_task }) {
                     </div>
                     <div className={s.tasks_container}>
                         <AddTaskIcon />
-                        {tasks[day].map(el => <TaskItem key={el.id} {...el} task={el.value} delete_task={delete_task} />)}
+                        {tasks[day].map(el => <TaskItem key={el.id} {...el} task={el.value} delete_task={delete_task} /> )}
                     </div>
                 </div>
             ))}

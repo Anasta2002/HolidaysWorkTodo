@@ -21,7 +21,7 @@ function App() {
     }
     
     const [tasks, setTasks] = useState(initialTasks);
-    const newTasks = Object.keys(tasks) //создание массива из объекта
+    const newTasks = Object.keys(tasks) //создание массива из ключей объекта
 
     const [selectedDay, setSelectedDay] = useState('Monday');
 
@@ -30,15 +30,11 @@ function App() {
         setSelectedDay(selectedOption.value)
     };
 
-    //under development
-    const [ allTasks, setAllTasks ] = useState([])
-    allTasks.push(tasks.Monday.map(el => el.value))
-    // allTasks.push(tasks.Tuesday.map(el => el.value))
-    // allTasks.push(tasks.Wednesday.map(el => el.value))
-    // allTasks.push(tasks.Thursday.map(el => el.value))
-    // allTasks.push(tasks.Friday.map(el => el.value))
-    // allTasks.push(tasks.Saturday.map(el => el.value))
-    // tasks.Sunday.map(el => el.value != [] ? allTasks.push(el.value) : '')
+   
+    
+    const allTasks = Object.values(tasks).flat(); // результатом Object.values(tasks) является массив массивов. А flat() преобразовывает все в один массив.
+
+
     console.log(allTasks)
 
     return (

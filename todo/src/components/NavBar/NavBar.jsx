@@ -92,7 +92,7 @@ export default function NavBar({tasks, setTasks, selectedDay, handleChangeSelect
                                     options={allTasks}
                                     onChange={handleChangeSelect}
                                     styles={colorStylesSelect}
-                                    name='day'
+                                    name='task'
                                     className={s.selector}
                                 />
                             } />
