@@ -21,7 +21,7 @@ function App() {
     }
     
     const [tasks, setTasks] = useState(initialTasks);
-    const newTasks = Object.keys(tasks) //создание массива из объекта
+    const newTasks = Object.keys(tasks) //создание массива из ключей объекта
 
     const [selectedDay, setSelectedDay] = useState('Monday');
 

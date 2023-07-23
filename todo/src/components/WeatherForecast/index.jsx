@@ -5,12 +5,13 @@ import WeatherInputs from './WeatherInputs'
 import TimeAndLocation from './TimeAndLocation'
 import TemperatureAndDetails from './TemperatureAndDetails'
 import Forecast from './Forecast'
-import getWeatherData from '../../services/weatherService'
+import getFormattedWeatherData from '../../services/weatherService'
+
 
 export default function WeatherForecast() {
 
 const fetchWeather = async () => {
-  const data = await getWeatherData('weather', {q: 'london'})
+  const data = await getFormattedWeatherData({q: 'london'})
   console.log(data);
 }
 
