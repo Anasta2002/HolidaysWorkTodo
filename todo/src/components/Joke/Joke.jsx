@@ -13,18 +13,16 @@ export default function Joke() {
     }
 
     return (
-        // <div className={s.wrapper}>
-            <div className={s.container}>
-                <h3>If you have a sad day click the button below. There are jokes and funny facts. Please do not be sad</h3>
-                <ul>
-                    <li>{jokes.punchline}</li>
-                    <li>{jokes.setup}</li>
-                </ul>
-                <button onClick={newJoke}>
-                    <p>Get new joke <BsEmojiSmile /> Just keep smiling </p>
-                    <MdNavigateNext style={{ fill: '#b05fff', width: '20px', height: '20px' }}/>
-                </button>
-            </div>
-        // </div>
+        <div className={s.container}>
+            <h3>If you have a sad day click the button below. There are jokes and funny facts. Please do not be sad</h3>
+            <ul>
+                <li>{jokes.punchline}</li>
+                <li>{jokes.setup}</li>
+            </ul>
+            <button onClick={newJoke}>
+                <p>Get new joke <BsEmojiSmile /> Just keep smiling </p>
+                <MdNavigateNext style={{ fill: '#b05fff', width: '20px', height: '20px' }}/>
+            </button>
+        </div>
     )
 }
