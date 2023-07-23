@@ -1,13 +1,5 @@
-.tip_window {
-  background-color: "#212121";
-  width: 300px;
-  height: 200px;
-  color: #f2f2f2;
-  border-radius: 9px;
-}
-
-.bottom_container {
-  width: 300px;
+.container {
+  width: 50%;
   min-height: 300px;
   background-color: #212121;
   border-radius: 10px;
@@ -20,13 +12,21 @@
   margin: 20px 30px;
 }
 
-@media (max-width: 1064px) {
-  .bottom_container {
+@media (max-width: 990px) {
+  .container {
     margin: 20px auto;
+    min-width: 300px;
   }
 }
 
-.bottom_container button {
+@media (max-width: 500px) {
+  .container {
+    margin: 20px 10px 20px 60px;
+    width: 300px;
+  }
+}
+
+.container button {
   width: 100%;
   display: flex;
   justify-content: center;
