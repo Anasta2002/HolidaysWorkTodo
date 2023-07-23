@@ -10,7 +10,9 @@ import { TiWeatherStormy } from 'react-icons/ti'
 import { IoIosHome } from 'react-icons/io'
 import { CiCircleList } from 'react-icons/ci';
 
-export default function NavBar({tasks, setTasks, selectedDay, handleChangeSelect}) {
+export default function NavBar({tasks, setTasks, selectedDay, handleChangeSelect, allTasks}) {
+    const isMobileView = window.innerWidth < 990;
+
     const submit = e => {
         e.preventDefault();
         const { task } = e.target;
@@ -24,6 +26,21 @@ export default function NavBar({tasks, setTasks, selectedDay, handleChangeSelect
         console.log(new_task);
         e.target.reset();
     }
+
+    //under development
+    // const submitToCalendar = e => {
+    //     e.preventDefault();
+    //     const { date } = e.target;
+    //     const new_event = {
+    //         id: Date.now(),
+    //         value: date.value,
+    //         label: date.value,
+    //         day: selectedDay,
+    //     }
+    //     add_task(date);
+    //     console.log(date);
+    //     e.target.reset();
+    // }
 
     const add_task = (task) => {
         setTasks(tasks => ({
@@ -44,15 +61,19 @@ export default function NavBar({tasks, setTasks, selectedDay, handleChangeSelect
         setIsHidden(prevState => !prevState)
     }
 
+    const url = window.location.pathname
+
     return (
         <nav className={s.main}>
             <div className={`${s.navbar} ${hiddenNav}`}>
-                <div className={s.menu_icon}>
-                    <CiCircleList 
-                        onClick={toggleHidden} 
-                        style={{ fill: '#b05fff', width: '30px', height: '30px' }}  
-                    />
-                </div>
+                {isMobileView && 
+                    <div className={s.menu_icon}>
+                        <CiCircleList 
+                            onClick={toggleHidden} 
+                            style={{ fill: '#b05fff', width: '30px', height: '30px' }}  
+                        />
+                    </div>
+                }
                 <h1 className={s.navbar_title}>Todos</h1>
                 <form onSubmit={submit} className={s.form}>
                     <div className={s.input_container}>
@@ -68,7 +89,7 @@ export default function NavBar({tasks, setTasks, selectedDay, handleChangeSelect
                         <Routes>
                             <Route path='/calendar' element={
                                 <Select
-                                    options={tasks.value}
+                                    options={allTasks}
                                     onChange={handleChangeSelect}
                                     styles={colorStylesSelect}
                                     name='day'
@@ -131,7 +152,6 @@ export default function NavBar({tasks, setTasks, selectedDay, handleChangeSelect
                         } />                     
                     </Routes>
                 </form>
-
                 <div className={s.form}>
                     <Routes>
                         <Route path='/calendar' element={

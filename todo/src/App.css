@@ -12,9 +12,8 @@
   grid-template-columns: 1fr 2fr;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .wrapper {
-    display: grid;
-    grid-template-columns: repeat(1, auto);
+    display: flex;
   }
 }
