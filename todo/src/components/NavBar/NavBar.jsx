@@ -43,6 +43,10 @@ export default function NavBar({tasks, setTasks, selectedDay, handleChangeSelect
     // }
 
     const add_task = (task) => {
+        if (!task.value.trim()) {  //  условие проверяет пустая задача или нет
+            alert('Task name cannot be empty');
+            return;
+        }
         setTasks(tasks => ({
             ...tasks,
             [selectedDay]: [...tasks[selectedDay], task] //обновляем массив у выбранного дня и добавляем таск

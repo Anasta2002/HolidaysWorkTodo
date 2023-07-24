@@ -1,4 +1,5 @@
 import React from 'react'
+import s from './index.module.css'
 import {
     UilTemperature,
     UilTear,
@@ -13,25 +14,25 @@ export default function TemperatureAndDetails({weather: {
 }}) {
     return (
         <div>
-            <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
+            <div className={s.sky}>
                 <p>{details}</p>
             </div>
 
-            <div className='flex flex-row items-center justify-between text-white py-3'>
-                <img src={iconUrlFromCode(icon)} alt="" className='w-20 ' />
-                <p className='text-5xl'>{`${temp.toFixed()}°`}</p>
-                <div className='flex flex-col space-y-2'>
-                    <div className="flex font-light text-sm items-center justify-center ">
+            <div className={s.temperature_container}>
+                <img src={iconUrlFromCode(icon)} alt="" />
+                <p>{`${temp.toFixed()}°`}</p>
+                <div className={s.measurements}>
+                    <div className={s.measure}>
                         <UilTemperature size={18} className='mr-1' />
                         Real feel:
                         <span className="font-medium ml-1">{`${feels_like.toFixed()}°`}</span>
                     </div>
-                    <div className="flex font-light text-sm items-center justify-center ">
+                    <div className={s.measure}>
                         <UilTear size={18} className='mr-1' />
                         Humidity:
                         <span className="font-medium ml-1">{`${humidity.toFixed()}%`}</span>
                     </div>
-                    <div className="flex font-light text-sm items-center justify-center ">
+                    <div className={s.measure}>
                         <UilWind size={18} className='mr-1' />
                         Wind:
                         <span className="font-medium ml-1">{`${speed.toFixed()}km/h`}</span>
@@ -40,22 +41,22 @@ export default function TemperatureAndDetails({weather: {
                 </div>
             </div>
 
-            <div className="flex flex-row items-center justify-center space-x-2 text-white text-sm py-3">
+            <div className={s.sun_container}>
                 <UilSun />
-                <p className="font-light ">
-                    Rise: <span className="font-medium ml-1">{formatToLocalTime(sunrise, timezone, 'hh:mm a')}</span> 
+                <p className={s.sun_text}>
+                    Rise: <span>{formatToLocalTime(sunrise, timezone, 'hh:mm a')}</span> 
                 </p>
                 <UilSunset />
-                <p className="font-light ">
-                    Set: <span className="font-medium ml-1">{formatToLocalTime(sunset, timezone, 'hh:mm a')}</span> 
+                <p className={s.sun_text}>
+                    Set: <span>{formatToLocalTime(sunset, timezone, 'hh:mm a')}</span> 
                 </p>
                 <UilSun />
-                <p className="font-light ">
-                    High: <span className="font-medium ml-1">{`${temp_max.toFixed()}°`}</span> 
+                <p className={s.sun_text}>
+                    High: <span>{`${temp_max.toFixed()}°`}</span> 
                 </p>
                 <UilSun />
-                <p className="font-light ">
-                    Low: <span className="font-medium ml-1">{`${temp_min.toFixed()}°`}</span> 
+                <p className={s.sun_text}>
+                    Low: <span>{`${temp_min.toFixed()}°`}</span> 
                 </p>
             </div>
         </div>

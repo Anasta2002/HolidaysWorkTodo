@@ -1,0 +1,65 @@
+.sky {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1.5rem;
+
+    padding-bottom: 1.5rem;
+
+    font-size: 1.25rem;
+    color: #AF5FFF;
+}
+
+.temperature_container {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #D9D9D9;
+    padding-top: 0.75rem;
+    padding: 0 40px 20px;
+
+}
+
+.temperature_container>p {
+    font-size: 50px;
+}
+
+.measurements {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+}
+
+.measure {
+    display: flex;
+    font-weight: 300;
+    font-size: 0.875rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.sun_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #CFA0FD;
+
+}
+
+.sun_text {
+    font-weight: 500;
+    margin-left: 0.5rem;
+    color: #D9D9D9
+}
+
+.sun_text span {
+    margin-left: 10px;
+    margin-right: 40px;
+
+}
