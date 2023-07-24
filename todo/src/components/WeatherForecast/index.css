@@ -1,0 +1,10 @@
+
+.main_container{
+    margin: 0 auto;
+    background-color: #353535;
+    width: 100%;
+    height: 100vh;
+    display: flex; 
+    flex-direction: column;
+
+}

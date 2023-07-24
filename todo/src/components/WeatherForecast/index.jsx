@@ -4,7 +4,7 @@ import TopButtons from './TopButtons'
 import WeatherInputs from './WeatherInputs'
 import TimeAndLocation from './TimeAndLocation'
 import TemperatureAndDetails from './TemperatureAndDetails'
-
+import './index.css'
 import getFormattedWeatherData from '../../services/weatherService'
 
 
@@ -12,12 +12,14 @@ import getFormattedWeatherData from '../../services/weatherService'
 export default function WeatherForecast() {
 
   const [query, setQuery] = useState({ q: 'berlin' })
-  const [units, setUnits] = useState('metric')
+
   const [weather, setWeather] = useState(null)
+
+
 
   useEffect(() => {
     const fetchWeather = async () => {
-      await getFormattedWeatherData({ ...query, ...units }).then(data => {
+      await getFormattedWeatherData({ ...query }).then(data => {
         setWeather(data)
       })
 
@@ -25,12 +27,16 @@ export default function WeatherForecast() {
 
     fetchWeather()
 
-  }, [query, units])
+  }, [query])
+
+
+
 
   return (
-    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400'>
-      <TopButtons setQuery={setQuery}/>
-      <WeatherInputs setQuery={setQuery} units={units} setUnits={setUnits}/>
+
+    <div className='main_container'> 
+      <TopButtons setQuery={setQuery} className='top_btns'/>
+      <WeatherInputs setQuery={setQuery}/>
 
       {weather && (
         <div>
@@ -39,8 +45,7 @@ export default function WeatherForecast() {
 
         </div>
       )}
-
-
     </div>
+
   )
 }

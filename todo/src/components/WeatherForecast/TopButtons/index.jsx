@@ -1,7 +1,5 @@
-import React from
-
-
-'react'
+import React from 'react'
+import s from './index.module.css'
 
 export default function TopButtons({setQuery}) {
  
@@ -29,9 +27,9 @@ export default function TopButtons({setQuery}) {
  ]
     
     return (
-    <div className='flex items-center justify-around my-6'>
+    <div className={s.cities_container}>
         {cities.map((city) => (
-            <button key={city.id} className='text-white text-lg font-medium'
+            <button key={city.id} 
             onClick={() => setQuery({q: city.title})}>{city.title}</button>
         ))}
     </div>
